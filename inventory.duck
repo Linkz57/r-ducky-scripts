@@ -6,7 +6,7 @@ STRING cmd
 DELAY 1000
 ENTER
 DELAY 5000
-STRING mkdir %userprofile%\inventory\%computername% & cd %userprofile%\inventory\%computername% & getmac > getmac.txt & hostname > hostname.txt & wmic csproduct get name > model.txt & wmic csproduct get vendor > make.txt & wmic systemenclosure get chassistypes > devicetype.txt & wmic os get name > os.txt & wmic os get buildnumber >> os.txt & wmic os get installdate > installdate.txt & whoami > windowsuser.txt & date /t >> lastscantime.txt & time /t >> lastscantime.txt & echo   >> lastscantime.txt & wmic csproduct get identifyingnumber > serialnumber.txt & mkdir extrainfo & cd extrainfo & wmic os > eos.txt & wmic csproduct >eprod.txt & wmic systemenclosure > ehardware.txt & explorer %userprofile%
+STRING mkdir %userprofile%\inventory\%computername% & cd %userprofile%\inventory\%computername% & getmac > getmac.txt & hostname > hostname.txt & wmic csproduct get name > model.txt & wmic csproduct get vendor > make.txt & wmic systemenclosure get chassistypes > devicetype.txt & wmic os get name > os.txt & wmic os get buildnumber >> os.txt & wmic os get installdate > installdate.txt & whoami > windowsuser.txt & date /t >> lastscantime.txt & time /t >> lastscantime.txt & echo " " >> lastscantime.txt & wmic csproduct get identifyingnumber > serialnumber.txt & mkdir extrainfo & cd extrainfo & wmic os > eos.txt & wmic csproduct >eprod.txt & wmic systemenclosure > ehardware.txt & explorer %userprofile%
 ENTER
 
 DELAY 10000
@@ -15,3 +15,10 @@ DELAY 1000
 CONTROL c
 DELAY 1000
 GUI e
+
+DELAY 1000
+GUI r
+DELAY 1000
+STRING notepad %userprofile%\inventory\%computername%\location.txt
+DELAY 1000
+ENTER
