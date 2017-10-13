@@ -1,5 +1,28 @@
 REM Collect info from offline computers for inventory
 REM version 1.2
+REM This lame script collects a few things from Windows computers. Tested with Windows XP 32-bit, 7 64-bit, and 10 64-bit.
+REM That "mkdir" line down there does all the work. It collects:
+REM PC Name with the "hostname" command
+REM Device Type with "wmic systemenclosure get chassistypes"
+REM Serial Number with "wmic csproduct get identifyingnumber"
+REM MAC Address with "getmac"
+REM Manufacturer with "wmic csproduct get vendor"
+REM Model with "wmic csproduct get name"
+REM Operating System with "wmic os get name"
+REM current Windows User with "whoami"
+REM Last Scan Time with "Date /t & time /t"
+REM Location is provided by the human that plugged in this ducky at the end there with the "notepad" line.
+REM 
+REM How to use:
+REM Compile this script, copy it to your Duck, and plug it into a computer you want to inventory.
+REM If you want to inventory computers connected to a network, you should be using Powershell or psexec. Those are way faster, and you don't have to stand up.
+REM once you plug in the Duck, wait 10 seconds and then the Duck will start typing. Don't touch anything until Notepad pops up. Once you see Notepad you can pull out the Duck.
+REM write your little human words in Notepad, save with Ctrl + S, and close. 
+REM Plug in a flash drive, navigate around your flash drive (I'd recommend the root for speed) and hit Ctrl + V to paste the data the Duck collected and copied on your behalf. 
+REM hit the 'right click' button at the bottom right of your keyboard, type 'J', unplug your flash drive and go to the next offline computer.
+REM
+REM
+REM
 DELAY 10000
 GUI r
 DELAY 1000
@@ -20,6 +43,6 @@ GUI e
 DELAY 1000
 GUI r
 DELAY 1000
-STRING notepad %userprofile%\inventory\%computername%\location.txt
+STRING notepad "%userprofile%\inventory\%computername%\location.txt"
 DELAY 1000
 ENTER
